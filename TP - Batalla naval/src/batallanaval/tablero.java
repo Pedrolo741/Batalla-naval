@@ -1,5 +1,5 @@
 package batallanaval;
-
+import java.util.Random;
 public class tablero {
 	//cargar la matriz con agua
 	public void cargar_tablero(int[][] matriz, int MAXCOL, int MAXFIL) {
@@ -10,6 +10,13 @@ public class tablero {
 				matriz[columna][fila]=0;
 			}
 		}
+		generador_de_barcos(matriz, maxbarcos);
+		
+	}
+	private void generador_de_barcos(int[][] matriz, int maxbarcos) {
+		Random r = new Random();
+		int tamaño= r.nextInt((5-1+1)+1);
+		System.out.println(tamaño);
 	}
 	private int porcentaje_segun_tablero(int col, int fil) {
 		
