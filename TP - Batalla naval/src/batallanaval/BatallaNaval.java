@@ -5,17 +5,10 @@ public class BatallaNaval {
 final static int COL=pedir_tamaño_de_tablero("Ingrese ancho: ");
 final static int FIL=pedir_tamaño_de_tablero("Ingrese alto: ");
 	public static void main(String[] args) {
-		//inicio objeto tablero 
-		tablero t;
-		t= new tablero();
-		//pedir tamaño de tablero
-		Jugador j;
-		j=new Jugador();
-		Jugador j2;
-		j2=new Jugador();
-		int matriz[][] = new int [COL][FIL];
-		t.cargar_tablero(matriz, COL, FIL);
-		t.imprimir_matriz(matriz,COL,FIL);
+		Jugador j=new Jugador(COL, FIL);
+		Jugador j2=new Jugador(COL, FIL);
+		
+		System.out.println("el juego comienza");
 		
 	}
 	private static int pedir_tamaño_de_tablero(String texto) {
@@ -33,5 +26,6 @@ final static int FIL=pedir_tamaño_de_tablero("Ingrese alto: ");
 		
 		return tamaño;
 	}
+	
 	
 }

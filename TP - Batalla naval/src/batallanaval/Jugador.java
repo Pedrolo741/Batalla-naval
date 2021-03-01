@@ -1,9 +1,11 @@
 package batallanaval;
 
 public class Jugador {
-
-	public static void main(String[] args) {
-
+	
+	public Jugador(int MAXCOL, int MAXFIL){
+		Tablero tablero= new Tablero(MAXCOL, MAXFIL);
+		tablero.cargar();
+		tablero.imprimir();
+		
 	}
-
 }
