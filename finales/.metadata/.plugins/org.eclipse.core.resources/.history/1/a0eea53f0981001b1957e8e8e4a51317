@@ -1,0 +1,57 @@
+import java.util.Arrays;
+
+/*Se tiene un arreglo ARR de enteros de tamaño MAX con secuencias de números distintos de cero separadas por uno
+o más ceros. El arreglo tiene orden ascendente según la suma de los elementos de cada secuencia. Se pide hacer un
+programa completo para insertar en ARR manteniendo su orden una secuencia dada en un arreglo NUEVO de
+enteros. Suponer que ARR y NUEVO comienzan y terminan con uno o más ceros y que se encuentran cargados.*/
+public class finalregular2019 {
+	 static int[] nuevo = { 0,0,0,0,0,1,5,1,1,0 };
+	static int[] arr = { 0, 0, 0, 0, 2, 3, 0, 0, 0, 2, 3, 2, 0, 0, 4, 4, 0, 2, 6, 0, 0, 0, 0, 4, 3, 2, 3, 1, 1, 0, 0, 0, 0, 0,
+				2, 9, 1, 1,5, 0 };
+	public static void main(String[] args) {
+		System.out.println(Arrays.toString(arr));
+		 contar();
+	}
+	private static void corrimiento(int cantidad_posiciones, int posicion_final) {
+		for(int i=arr.length-1;i>=posicion_final;i--) {
+			arr[i]=arr[i-1];
+		}
+	}
+	private static void intesertar_en_arr(int suma_nuevo, int tamaño_nuevo, int primer_posicion) {
+		int suma_arr=0;
+		int tamaño_arr=0;
+		for(int i=0; i<arr.length-1; i++) {
+			if(arr[i]!=0) {
+				suma_arr+=arr[i];
+				tamaño_arr++;
+				if(arr[i+1]==0) {
+					
+					if(suma_nuevo<suma_arr) {
+						corrimiento(tamaño_nuevo,(i-tamaño_arr));
+						
+					}
+					suma_arr=0;
+					tamaño_arr=0;
+				}
+			}
+		}
+	}
+	public static void contar() {
+		int suma=0;
+		int tamaño=0;
+		int primer_posicion=0;
+		for(int i=0;i<nuevo.length-1;i++) {
+			if(nuevo[i]!=0) {
+				suma+=nuevo[i];
+				if(tamaño==0) {
+					primer_posicion=i;
+				}
+				
+				tamaño++;
+			}
+		}
+		intesertar_en_arr(suma,tamaño,primer_posicion);
+		
+	}
+	
+}
